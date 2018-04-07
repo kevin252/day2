@@ -1,0 +1,59 @@
+<h1>
+    Welcome to {{ title }}!
+</h1>
+
+
+<div *ngIf="show">
+    <ul>
+        <li *ngFor="let animal of animals">{{animal}}</li>
+    </ul>
+</div>
+
+<button (click)="change()">{{show ? "Ocultar" : "Mostrar"}}</button>
+
+<div>
+    <ul [ngSwitch]="show">
+        <li *ngSwitchCase="true"> Es True</li>
+        <li *ngSwitchCase="false"> Es False</li>
+    </ul>
+</div>
+
+
+<div>
+    <p appMyDirective>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur reiciendis laudantium, eum officiis laboriosam sequi culpa facilis repudiandae est, repellendus soluta quas amet sed aliquid, non incidunt. Eius, velit magni!</p>
+    <p appMyDirective>Dolor, ipsa ut enim nemo sit illum, temporibus cum veritatis libero obcaecati quidem aliquam neque. Officia harum voluptatem rerum obcaecati maiores, sequi ex tempore laborum vel mollitia doloremque dolor quos.</p>
+    <p>Incidunt maiores voluptatum eos molestias nobis inventore repellendus voluptatem repudiandae aliquam rem quidem consequuntur labore asperiores quod obcaecati ducimus possimus vero, reiciendis, officia, perferendis natus amet dolor. Soluta, tenetur
+        eligendi.
+    </p>
+    <p>Alias quam accusamus non deleniti quis fuga? Aliquam molestiae eveniet similique quia! Numquam itaque aperiam eos recusandae ut rerum consequatur accusamus beatae? Magnam molestias at error quis, neque voluptates beatae?</p>
+    <p>Minima eveniet ea eos quod perspiciatis similique amet quo tempore recusandae repellendus, quasi, sunt, omnis at atque! Hic aliquam, autem, iste laudantium est tempora et asperiores ut perspiciatis, laborum architecto.</p>
+</div>
+
+<p>{{credit| creditcard}}</p>
+
+<h1>{{name}}</h1>
+<input type="text"
+       id=""
+       [value]="name"
+       (keypress)="eventKeyPress($event)">
+
+
+<table border>
+    <thead>
+        <th>User ID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Opcion</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts">
+            <td>{{post.id}}</td>
+            <td>{{post.userId}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.body}}</td>
+            <td><button (click)="removePost(post.id)">Eliminar</button></td>
+        </tr>
+
+    </tbody>
+</table>
